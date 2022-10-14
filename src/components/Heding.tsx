@@ -7,9 +7,10 @@ export interface HedingProps{
     size?:'sm' |'md'| 'lg';
     children:ReactNode;
     asChild?:boolean;
+    className?: string;
 }
 
-export function Heding({size = 'md',children,asChild}:HedingProps){
+export function Heding({size = 'md',children,asChild,className}:HedingProps){
 
     const Comp = asChild ?  Slot : 'h2';
 
@@ -21,7 +22,8 @@ export function Heding({size = 'md',children,asChild}:HedingProps){
                 'text-lg': size === 'sm',
                 'text-xl ': size === 'md',
                 'text-2xl': size === 'lg',
-            }
+            },
+            className,
         )}
         >
          {children}</Comp>
